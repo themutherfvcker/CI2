@@ -64,7 +64,7 @@ export const Methodology: React.FC = () => {
   return (
     <section id="methodology" className="bg-slate-900 text-white">
       {/* Header Section */}
-      <div className="py-24 relative overflow-hidden">
+      <div className="pt-24 pb-8 relative overflow-hidden">
         {/* Background elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-10">
           <div className="absolute top-[20%] left-[10%] w-96 h-96 bg-brand-blue rounded-full blur-[100px]"></div>
@@ -88,7 +88,7 @@ export const Methodology: React.FC = () => {
         {phases.map((item, idx) => (
           <div 
             key={idx} 
-            className={`py-20 lg:py-32 ${idx % 2 === 0 ? 'bg-slate-900' : 'bg-slate-850'}`}
+            className={`py-16 lg:py-24 ${idx % 2 === 0 ? 'bg-slate-900' : 'bg-slate-850'}`}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -96,7 +96,7 @@ export const Methodology: React.FC = () => {
                 {/* Text Column */}
                 <div className={`order-2 ${idx % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
                   <div className="flex items-center gap-4 mb-6">
-                    <span className="text-6xl font-serif font-bold text-slate-800 opacity-50 select-none">
+                    <span className="text-6xl font-serif font-bold text-white opacity-25 select-none">
                       {item.number}
                     </span>
                     <span className="bg-brand-blue text-brand-gold text-xs font-bold px-3 py-1 rounded-full border border-brand-gold/20 tracking-wide uppercase">
