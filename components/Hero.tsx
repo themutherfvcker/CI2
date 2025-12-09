@@ -13,12 +13,12 @@ export const Hero: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-brand-blue text-xs font-bold tracking-wide uppercase mb-6">
-            <span className="w-2 h-2 rounded-full bg-brand-gold"></span>
+            <span className="w-2 h-2 rounded-full bg-brand-lime"></span>
             For Mid-Market & Enterprise
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-8">
-            Is Your Company <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-blue to-blue-600">Stuck?</span>
+            We help <span className="text-brand-lime">stuck</span> companies <span className="text-brand-lime">grow</span>.
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed font-light">
