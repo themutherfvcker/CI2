@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center gap-3 text-white mb-4 group">
               <Logo className="w-8 h-8 text-brand-gold" dark={true} />
-              <span className="text-xl font-bold">Competitive<span className="font-light">Intelligence</span></span>
+              <span className="text-xl font-light">Competitive<span className="font-bold">Intelligence</span></span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed">
               Helping stuck mid-market and enterprise companies unlock their next stage of growth through rigorous analysis and structural optimization.

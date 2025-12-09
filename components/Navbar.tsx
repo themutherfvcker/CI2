@@ -52,8 +52,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3 group">
               <Logo className="w-10 h-10 transition-transform group-hover:scale-105" />
-              <span className={`text-xl font-bold tracking-tight ${isScrolledOrSubpage ? 'text-brand-blue' : 'text-slate-900'}`}>
-                Competitive<span className="font-light">Intelligence</span>
+              <span className={`text-xl font-light tracking-tight ${isScrolledOrSubpage ? 'text-brand-blue' : 'text-slate-900'}`}>
+                Competitive<span className="font-bold">Intelligence</span>
               </span>
             </Link>
           </div>
