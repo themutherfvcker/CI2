@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Phone, MapPin, Send } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -42,20 +42,11 @@ export const Contact: React.FC = () => {
             <div className="space-y-6 mb-12">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-blue-50 text-brand-blue rounded flex items-center justify-center">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Email Us</p>
-                  <p className="font-medium text-slate-900">growth@comp-intel.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-blue-50 text-brand-blue rounded flex items-center justify-center">
                   <Phone size={20} />
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Call Us</p>
-                  <p className="font-medium text-slate-900">+1 (888) 555-0123</p>
+                  <p className="font-medium text-slate-900">+61 4 2426 4928</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -64,7 +55,7 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold text-slate-400 uppercase tracking-wide">Headquarters</p>
-                  <p className="font-medium text-slate-900">New York, NY</p>
+                  <p className="font-medium text-slate-900">Sydney, Australia</p>
                 </div>
               </div>
             </div>
