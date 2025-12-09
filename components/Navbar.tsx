@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Menu, X, BarChart3, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
+import { Logo } from './Logo';
 
 interface NavbarProps {
   scrolled: boolean;
@@ -49,10 +50,8 @@ export const Navbar: React.FC<NavbarProps> = ({ scrolled }) => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center gap-2 group">
-              <div className={`p-2 rounded bg-brand-blue text-white transition-colors`}>
-                <BarChart3 size={24} />
-              </div>
+            <Link to="/" className="flex items-center gap-3 group">
+              <Logo className="w-10 h-10 transition-transform group-hover:scale-105" />
               <span className={`text-xl font-bold tracking-tight ${isScrolledOrSubpage ? 'text-brand-blue' : 'text-slate-900'}`}>
                 Competitive<span className="font-light">Intelligence</span>
               </span>

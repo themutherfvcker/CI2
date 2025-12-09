@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BarChart3, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin, Twitter } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -8,8 +9,8 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 text-white mb-4 group">
-              <BarChart3 className="text-brand-gold" size={24} />
+            <Link to="/" className="flex items-center gap-3 text-white mb-4 group">
+              <Logo className="w-8 h-8 text-brand-gold" dark={true} />
               <span className="text-xl font-bold">Competitive<span className="font-light">Intelligence</span></span>
             </Link>
             <p className="max-w-xs text-sm leading-relaxed">
