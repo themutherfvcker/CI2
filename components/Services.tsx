@@ -26,21 +26,28 @@ export const Services: React.FC = () => {
             <Link 
               key={service.id} 
               to={`/services/${service.id}`}
-              className="group relative flex flex-col h-full bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 hover:border-brand-gold/30"
+              className="group relative flex flex-col h-full bg-slate-800/40 border border-slate-700/50 rounded-2xl overflow-hidden hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 hover:border-brand-gold/30"
             >
-              {/* Icon Container */}
-              <div className="w-20 h-20 bg-gradient-to-br from-brand-blue to-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-black/30 border border-white/5 group-hover:scale-110 group-hover:shadow-brand-gold/10 transition-transform duration-300 [&>svg]:w-10 [&>svg]:h-10 [&>svg]:text-white">
-                {service.icon}
+              {/* Image Container */}
+              <div className="h-48 overflow-hidden relative">
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-transparent transition-colors z-10"></div>
+                <img 
+                  src={service.heroImage} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                />
               </div>
               
-              <h4 className="text-xl font-bold mb-3 text-white group-hover:text-brand-gold transition-colors">{service.title}</h4>
-              
-              <p className="text-slate-400 leading-relaxed mb-8 flex-grow">
-                {service.shortDesc}
-              </p>
-              
-              <div className="flex items-center text-brand-gold font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
-                Learn More <ArrowRight size={16} className="ml-2" />
+              <div className="p-8 flex flex-col flex-grow">
+                <h4 className="text-xl font-bold mb-3 text-white group-hover:text-brand-gold transition-colors">{service.title}</h4>
+                
+                <p className="text-slate-400 leading-relaxed mb-6 flex-grow text-sm">
+                  {service.shortDesc}
+                </p>
+                
+                <div className="flex items-center text-brand-gold font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300 mt-auto">
+                  Learn More <ArrowRight size={16} className="ml-2" />
+                </div>
               </div>
             </Link>
           ))}
