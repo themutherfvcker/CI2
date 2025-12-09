@@ -1,44 +1,19 @@
 import React from 'react';
-import { Target, TrendingUp, UserCheck, Layout, Heart, ClipboardCheck } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { servicesData } from '../data/servicesData';
 
 export const Services: React.FC = () => {
-  const services = [
-    {
-      icon: <Target className="w-8 h-8 text-white" />,
-      title: "Competitive Analysis",
-      description: "We don't just look at websites. We reverse-engineer your competitors' sales playbooks, pricing models, and talent strategies to expose their weaknesses."
-    },
-    {
-      icon: <Layout className="w-8 h-8 text-white" />,
-      title: "Org Structure Design",
-      description: "Redesigning your hierarchy for speed and accountability. We eliminate silos that stifle information flow and decision making."
-    },
-    {
-      icon: <UserCheck className="w-8 h-8 text-white" />,
-      title: "C-Level Coaching",
-      description: "Executive mentorship to align the C-Suite. We turn managers into leaders and founders into CEOs who can scale."
-    },
-    {
-      icon: <TrendingUp className="w-8 h-8 text-white" />,
-      title: "Marketing & Sales Alignment",
-      description: "Building a unified revenue engine. We fix the handoff processes, incentives, and messaging that cause friction between teams."
-    },
-    {
-      icon: <Heart className="w-8 h-8 text-white" />,
-      title: "Company Culture",
-      description: "Culture is operating system, not perks. We codify your values into hiring, firing, and promotion frameworks."
-    },
-    {
-      icon: <ClipboardCheck className="w-8 h-8 text-white" />,
-      title: "HR Systems & Processes",
-      description: "Scalable people operations. From onboarding to performance reviews, we build systems that retain top talent."
-    }
-  ];
-
   return (
-    <section id="services" className="py-24 bg-brand-blue text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section id="services" className="py-24 bg-brand-blue text-white relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10 pointer-events-none">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-gold/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-20">
           <h2 className="text-brand-gold font-bold tracking-wider uppercase text-sm mb-3">The Solution</h2>
           <h3 className="text-3xl md:text-5xl font-bold font-serif mb-6">Comprehensive Business Transformation</h3>
           <p className="text-slate-300 text-lg">
@@ -47,16 +22,27 @@ export const Services: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="bg-slate-800/50 p-8 rounded-sm border border-slate-700/50 hover:bg-slate-800 transition-colors group">
-              <div className="w-14 h-14 bg-brand-blue rounded-lg flex items-center justify-center mb-6 shadow-lg shadow-black/20 group-hover:scale-110 transition-transform duration-300">
+          {servicesData.map((service) => (
+            <Link 
+              key={service.id} 
+              to={`/services/${service.id}`}
+              className="group relative flex flex-col h-full bg-slate-800/40 border border-slate-700/50 rounded-2xl p-8 hover:bg-slate-800 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 hover:border-brand-gold/30"
+            >
+              {/* Icon Container */}
+              <div className="w-20 h-20 bg-gradient-to-br from-brand-blue to-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-black/30 border border-white/5 group-hover:scale-110 group-hover:shadow-brand-gold/10 transition-transform duration-300 [&>svg]:w-10 [&>svg]:h-10 [&>svg]:text-white">
                 {service.icon}
               </div>
-              <h4 className="text-xl font-bold mb-3">{service.title}</h4>
-              <p className="text-slate-400 leading-relaxed">
-                {service.description}
+              
+              <h4 className="text-xl font-bold mb-3 text-white group-hover:text-brand-gold transition-colors">{service.title}</h4>
+              
+              <p className="text-slate-400 leading-relaxed mb-8 flex-grow">
+                {service.shortDesc}
               </p>
-            </div>
+              
+              <div className="flex items-center text-brand-gold font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
+                Learn More <ArrowRight size={16} className="ml-2" />
+              </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -1,11 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { ProblemAgitate } from './components/ProblemAgitate';
-import { Services } from './components/Services';
-import { Methodology } from './components/Methodology';
-import { Contact } from './components/Contact';
+import { Home } from './components/Home';
+import { ServiceDetail } from './components/ServiceDetail';
 import { Footer } from './components/Footer';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
@@ -19,16 +27,18 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-      <Navbar scrolled={scrolled} />
-      <main className="flex-grow">
-        <Hero />
-        <ProblemAgitate />
-        <Services />
-        <Methodology />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen flex flex-col font-sans">
+        <Navbar scrolled={scrolled} />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services/:id" element={<ServiceDetail />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }

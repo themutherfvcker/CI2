@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { BarChart3, Linkedin, Twitter } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -7,10 +8,10 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-2 text-white mb-4">
+            <Link to="/" className="flex items-center gap-2 text-white mb-4 group">
               <BarChart3 className="text-brand-gold" size={24} />
               <span className="text-xl font-bold">Competitive<span className="font-light">Intelligence</span></span>
-            </div>
+            </Link>
             <p className="max-w-xs text-sm leading-relaxed">
               Helping stuck mid-market and enterprise companies unlock their next stage of growth through rigorous analysis and structural optimization.
             </p>
@@ -19,18 +20,19 @@ export const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-bold mb-4">Services</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Competitive Analysis</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">C-Level Coaching</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Org Structure</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Culture Transformation</a></li>
+              <li><Link to="/services/competitive-analysis" className="hover:text-brand-gold transition-colors">Competitive Analysis</Link></li>
+              <li><Link to="/services/c-level-coaching" className="hover:text-brand-gold transition-colors">C-Level Coaching</Link></li>
+              <li><Link to="/services/org-structure" className="hover:text-brand-gold transition-colors">Org Structure</Link></li>
+              <li><Link to="/services/culture" className="hover:text-brand-gold transition-colors">Culture Transformation</Link></li>
+              <li><Link to="/services/marketing-sales" className="hover:text-brand-gold transition-colors">Marketing & Sales</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-white font-bold mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
-              <li><a href="#" className="hover:text-brand-gold transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Case Studies</a></li>
+              <li><Link to="/" className="hover:text-brand-gold transition-colors">About Us</Link></li>
+              <li><Link to="/#methodology" className="hover:text-brand-gold transition-colors">Methodology</Link></li>
               <li><a href="#" className="hover:text-brand-gold transition-colors">Careers</a></li>
               <li><a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
             </ul>
