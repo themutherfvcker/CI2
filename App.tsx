@@ -5,6 +5,8 @@ import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { ServiceDetail } from './components/ServiceDetail';
 import { Footer } from './components/Footer';
+import { NotFound } from './components/NotFound';
+import { PrivacyPolicy } from './components/PrivacyPolicy';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -37,6 +39,8 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services/:id" element={<ServiceDetail />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />

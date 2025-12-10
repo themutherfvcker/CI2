@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/services/c-level-coaching" className="hover:text-brand-gold transition-colors">C-Level Coaching</Link></li>
               <li><Link to="/services/org-structure" className="hover:text-brand-gold transition-colors">Org Structure</Link></li>
               <li><Link to="/services/culture" className="hover:text-brand-gold transition-colors">Culture Transformation</Link></li>
-              <li><Link to="/services/marketing-sales" className="hover:text-brand-gold transition-colors">Marketing & Sales</Link></li>
+              <li><Link to="/services/marketing" className="hover:text-brand-gold transition-colors">Marketing</Link></li>
             </ul>
           </div>
 
@@ -35,7 +35,7 @@ export const Footer: React.FC = () => {
               <li><Link to="/" className="hover:text-brand-gold transition-colors">About Us</Link></li>
               <li><Link to="/#methodology" className="hover:text-brand-gold transition-colors">Methodology</Link></li>
               <li><a href="#" className="hover:text-brand-gold transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-brand-gold transition-colors">Privacy Policy</a></li>
+              <li><Link to="/privacy-policy" className="hover:text-brand-gold transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
