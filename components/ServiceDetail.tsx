@@ -3,6 +3,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { servicesData } from '../data/servicesData';
 import { ArrowLeft, Check, Quote, ArrowRight } from 'lucide-react';
 import { Contact } from './Contact';
+import { SEO } from './SEO';
 
 export const ServiceDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,6 +15,11 @@ export const ServiceDetail: React.FC = () => {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title={`${service.title} | Competitive Intelligence`}
+        description={service.shortDesc}
+      />
+      
       {/* Service Hero */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { ServiceDetail } from './components/ServiceDetail';
@@ -27,18 +28,20 @@ export default function App() {
   }, []);
 
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen flex flex-col font-sans">
-        <Navbar scrolled={scrolled} />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services/:id" element={<ServiceDetail />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen flex flex-col font-sans">
+          <Navbar scrolled={scrolled} />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services/:id" element={<ServiceDetail />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
