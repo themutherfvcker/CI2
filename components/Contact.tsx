@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, MapPin, Send } from 'lucide-react';
+import { Phone, MapPin, Send, Loader2 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +9,7 @@ export const Contact: React.FC = () => {
     revenue: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -17,10 +18,37 @@ export const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for your interest. Our team will contact you shortly.");
-    // In a real app, this would send data to a backend
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mpwvywdw", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert("Thank you for your interest. Our team will contact you shortly.");
+        setFormData({
+          name: '',
+          company: '',
+          email: '',
+          revenue: '',
+          message: ''
+        });
+      } else {
+        alert("Oops! There was a problem submitting your form. Please try again or call us directly.");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form. Please check your internet connection.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -136,9 +164,14 @@ export const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-goldHover text-white font-bold py-3 px-4 rounded-sm transition-colors duration-200"
+                disabled={isSubmitting}
+                className="w-full flex items-center justify-center gap-2 bg-brand-gold hover:bg-brand-goldHover text-white font-bold py-3 px-4 rounded-sm transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Get in Touch <Send size={18} />
+                {isSubmitting ? (
+                  <>Sending... <Loader2 className="animate-spin" size={18} /></>
+                ) : (
+                  <>Get in Touch <Send size={18} /></>
+                )}
               </button>
               <p className="text-xs text-center text-slate-400 mt-2">
                 We respect your privacy. Non-disclosure agreements available upon request.
