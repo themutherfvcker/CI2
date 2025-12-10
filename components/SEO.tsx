@@ -6,13 +6,15 @@ interface SEOProps {
   description: string;
   type?: string;
   name?: string;
+  schema?: Record<string, any>;
 }
 
 export const SEO: React.FC<SEOProps> = ({ 
   title, 
   description, 
   type = 'website',
-  name = 'Competitive Intelligence' 
+  name = 'Competitive Intelligence',
+  schema
 }) => {
   return (
     <Helmet>
@@ -25,11 +27,19 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:site_name" content={name} />
+      <meta property="og:url" content={window.location.href} />
       
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+
+      {/* Structured Data (JSON-LD) */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
     </Helmet>
   );
 };

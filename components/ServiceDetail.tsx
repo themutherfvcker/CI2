@@ -13,11 +13,39 @@ export const ServiceDetail: React.FC = () => {
     return <Navigate to="/" replace />;
   }
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": service.title,
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Competitive Intelligence",
+      "url": "https://www.competitiveintelligence.com.au"
+    },
+    "description": service.shortDesc,
+    "areaServed": {
+      "@type": "Country",
+      "name": "Australia"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": service.title,
+      "itemListElement": service.solution.features.map((feature) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": feature.split(':')[0]
+        }
+      }))
+    }
+  };
+
   return (
     <div className="pt-20">
       <SEO 
         title={`${service.title} | Competitive Intelligence`}
         description={service.shortDesc}
+        schema={serviceSchema}
       />
       
       {/* Service Hero */}
